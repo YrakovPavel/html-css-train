@@ -1,35 +1,56 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+body{
+    background-color: color-mix(in srgb, #091540, black 40%);;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 5vh 8vw;
+}
+.main-frame{
+    width: 100%;
+    height: 100%;
+    padding: 24px;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+h2{
+    color: white;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+header{
+    margin-bottom: 32px;
+    width: 100%;
 }
 
-@media (min-width: 1024px) {
-  body {
+.card-logo-image{
+    background-color: color-mix(in srgb, #091540, white 20%);
+    border-radius: 20px;
+}
+
+.logo-image{
+    margin-left: 24px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    width: 12%;
+}
+
+nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.buttons-group{
     display: flex;
-    place-items: center;
-  }
+    padding: 6px;
+    gap: 12px;
+}
 
-  #app {
+.btn{
+    border-radius: 20px;
+}
+
+.all-elements{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
 }
