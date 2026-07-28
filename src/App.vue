@@ -1,4 +1,81 @@
 <script setup lang="ts">
+import ExtensionComponent from "@/components/ExtensionComponent.vue";
+import type {Extension} from "@/types/Extension.ts";
+
+const extensionArray: Extension[] = [];
+
+extensionArray.push({
+  name: "DevLens",
+  description: "Quickly inspect page layouts and visualize element boundaries.",
+  image: "logo-devlens.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "StyleSpy",
+  description: "Instantly analyze and copy CSS from any webpage element.",
+  image: "logo-devlens.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "SpeedBoost",
+  description: "Optimizes browser resource usage to accelerate page loading.",
+  image: "logo-speed-boost.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "JSONWizard",
+  description: "Formats, validates, and prettifies JSON responses in-browser.",
+  image: "logo-json-wizard.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "TabMaster",
+  description: "Pro Organizes browser tabs into groups and sessions.",
+  image: "logo-tab-master-pro.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "ViewportBuddy",
+  description: "Simulates various screen resolutions directly within the browser.",
+  image: "logo-viewport-buddy.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "Markup Notes",
+  description: "Enables annotation and notes directly onto webpages for collaborative debugging.",
+  image: "logo-markup-notes.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "GridGuides",
+  description: "Overlay customizable grids and alignment guides on any webpage.",
+  image: "logo-grid-guides.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "Palette Picker",
+  description: "Instantly extracts color palettes from any webpage.",
+  image: "logo-palette-picker.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "LinkChecker",
+  description: "Scans and highlights broken links on any page.",
+  image: "logo-link-checker.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "DOM Snapshot",
+  description: "Capture and export DOM structures quickly.",
+  image: "logo-dom-snapshot.svg",
+  is_deleted: false
+})
+extensionArray.push({
+  name: "ConsolePlus",
+  description: "Enhanced developer console with advanced filtering and logging.",
+  image: "logo-console-plus.svg",
+  is_deleted: false
+})
 </script>
 
 <template>
@@ -19,78 +96,11 @@
           </div>
         </nav>
         <div class="all-elements">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">DevLens</div>
-              <div class="card-text">Quickly inspect page layouts and visualize element boundaries.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">StyleSpy</div>
-              <div class="card-text"> Instantly analyze and copy CSS from any webpage element.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">SpeedBoost</div>
-              <div class="card-text">Optimizes browser resource usage to accelerate page loading. </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">JSONWizard</div>
-              <div class="card-text">Formats, validates, and prettifies JSON responses in-browser.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">TabMaster</div>
-              <div class="card-text">Pro Organizes browser tabs into groups and sessions.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">ViewportBuddy</div>
-              <div class="card-text">Simulates various screen resolutions directly within the browser.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">Markup Notes</div>
-              <div class="card-text">Enables annotation and notes directly onto webpages for collaborative debugging.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">GridGuides</div>
-              <div class="card-text">Overlay customizable grids and alignment guides on any webpage.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">Palette Picker</div>
-              <div class="card-text">Instantly extracts color palettes from any webpage.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">LinkChecker</div>
-              <div class="card-text">Scans and highlights broken links on any page.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">DOM Snapshot</div>
-              <div class="card-text">Capture and export DOM structures quickly.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">ConsolePlus</div>
-              <div class="card-text">Enhanced developer console with advanced filtering and logging.</div>
-            </div>
-          </div>
+          <ExtensionComponent
+              v-for="(item, index) in extensionArray"
+              :extension="item"
+              :key="index">
+          </ExtensionComponent>
         </div>
       </div>
     </main>
@@ -98,5 +108,53 @@
 </template>
 
 <style scoped>
+.main-frame{
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+}
 
+h2{
+  color: white;
+}
+
+header{
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.card-logo-image{
+  background-color: color-mix(in srgb, #091540, white 20%);
+  border-radius: 20px;
+}
+
+.logo-image{
+  margin-left: 24px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  width: 12%;
+}
+
+nav{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.buttons-group{
+  display: flex;
+  padding: 6px;
+  gap: 12px;
+}
+
+.btn{
+  border-radius: 20px;
+}
+
+.all-elements{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
 </style>
