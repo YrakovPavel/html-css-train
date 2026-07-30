@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ExtensionComponent from "@/components/ExtensionComponent.vue";
 import type {Extension} from "@/types/Extension.ts";
+import Logo from "@/assets/images/logo.svg";
 
 const extensionArray: Extension[] = [];
 
@@ -81,8 +82,8 @@ extensionArray.push({
 <template>
   <div class="main-frame">
     <header>
-      <div class="card card-logo-image">
-        <img src="./assets/images/logo.svg" alt="logo" class="logo-image">
+      <div class="card card-logo">
+        <Logo class="logo"></Logo>
       </div>
     </header>
     <main>
@@ -123,16 +124,17 @@ header{
   width: 100%;
 }
 
-.card-logo-image{
-  background-color: color-mix(in srgb, #091540, white 20%);
+.card-logo{
+  background-color: #1f2535;
   border-radius: 20px;
 }
 
-.logo-image{
+.logo{
   margin-left: 24px;
   margin-bottom: 12px;
   margin-top: 12px;
   width: 12%;
+  color: white;
 }
 
 nav{
@@ -150,6 +152,8 @@ nav{
 
 .btn{
   border-radius: 20px;
+  background-color: #1f2535;
+  border-color: #4D5164;
 }
 
 .all-elements{
