@@ -1,73 +1,11 @@
 <script setup lang="ts">
 import ExtensionComponent from "@/components/ExtensionComponent.vue";
-import type {Extension} from "@/types/Extension.ts";
+import extensionArray from "../data.json";
 import Logo from "@/assets/images/logo.svg";
 import {ref} from "vue";
 
 const extensionActiveMod = ref<string>("all");
 
-const extensionArray: Extension[] = [];
-
-extensionArray.push({
-  name: "DevLens",
-  description: "Quickly inspect page layouts and visualize element boundaries.",
-  image: "logo-devlens.svg",
-})
-extensionArray.push({
-  name: "StyleSpy",
-  description: "Instantly analyze and copy CSS from any webpage element.",
-  image: "logo-style-spy.svg",
-})
-extensionArray.push({
-  name: "SpeedBoost",
-  description: "Optimizes browser resource usage to accelerate page loading.",
-  image: "logo-speed-boost.svg",
-})
-extensionArray.push({
-  name: "JSONWizard",
-  description: "Formats, validates, and prettifies JSON responses in-browser.",
-  image: "logo-json-wizard.svg",
-})
-extensionArray.push({
-  name: "TabMaster",
-  description: "Pro Organizes browser tabs into groups and sessions.",
-  image: "logo-tab-master-pro.svg",
-})
-extensionArray.push({
-  name: "ViewportBuddy",
-  description: "Simulates various screen resolutions directly within the browser.",
-  image: "logo-viewport-buddy.svg",
-})
-extensionArray.push({
-  name: "Markup Notes",
-  description: "Enables annotation and notes directly onto webpages for collaborative debugging.",
-  image: "logo-markup-notes.svg",
-})
-extensionArray.push({
-  name: "GridGuides",
-  description: "Overlay customizable grids and alignment guides on any webpage.",
-  image: "logo-grid-guides.svg",
-})
-extensionArray.push({
-  name: "Palette Picker",
-  description: "Instantly extracts color palettes from any webpage.",
-  image: "logo-palette-picker.svg",
-})
-extensionArray.push({
-  name: "LinkChecker",
-  description: "Scans and highlights broken links on any page.",
-  image: "logo-link-checker.svg",
-})
-extensionArray.push({
-  name: "DOM Snapshot",
-  description: "Capture and export DOM structures quickly.",
-  image: "logo-dom-snapshot.svg",
-})
-extensionArray.push({
-  name: "ConsolePlus",
-  description: "Enhanced developer console with advanced filtering and logging.",
-  image: "logo-console-plus.svg",
-})
 </script>
 
 <template>
