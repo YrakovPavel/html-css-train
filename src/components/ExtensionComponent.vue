@@ -1,19 +1,31 @@
 <script setup lang="ts">
 import type {Extension} from "@/types/Extension.ts";
+import {ref} from "vue";
 
-const props = defineProps<{extension: Extension}>()
+const props = defineProps<{extension: Extension, mod: string}>()
+
+const is_deleted = ref<boolean>(false);
+const is_active = ref<boolean>(false);
+
+function checkShow(){
+  return ((!is_deleted.value) &&
+      (props.mod === "all") ||
+      (props.mod === "active" && is_active.value) ||
+      (props.mod === "inactive" && !is_active.value))
+}
+
 </script>
 
 <template>
-  <div class="card" v-if="!props.extension.is_deleted">
+  <div class="card" v-show="checkShow()">
     <div class="card-body">
       <img class="card-image" :src="'src/assets/images/' + props.extension.image" alt="image of extension">
-      <div class="card-title"><b>{{ props.extension.name }}</b></div>
+      <div class="card-title"><b>{{ props.extension.name}}</b></div>
       <div class="card-text">{{ props.extension.description }}</div>
       <div class="card-buttons">
-        <button type="button" class="btn btn-secondary">Remove</button>
+        <button type="button" class="btn btn-secondary" @click="is_deleted = !is_deleted">Remove</button>
         <form class="form-check form-switch">
-          <input class="form-check-input" type="checkbox">
+          <input class="form-check-input" type="checkbox" @click="is_active = !is_active">
         </form>
       </div>
     </div>

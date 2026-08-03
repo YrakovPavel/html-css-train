@@ -2,6 +2,9 @@
 import ExtensionComponent from "@/components/ExtensionComponent.vue";
 import type {Extension} from "@/types/Extension.ts";
 import Logo from "@/assets/images/logo.svg";
+import {ref} from "vue";
+
+const extensionActiveMod = ref<string>("all");
 
 const extensionArray: Extension[] = [];
 
@@ -9,73 +12,61 @@ extensionArray.push({
   name: "DevLens",
   description: "Quickly inspect page layouts and visualize element boundaries.",
   image: "logo-devlens.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "StyleSpy",
   description: "Instantly analyze and copy CSS from any webpage element.",
-  image: "logo-devlens.svg",
-  is_deleted: false
+  image: "logo-style-spy.svg",
 })
 extensionArray.push({
   name: "SpeedBoost",
   description: "Optimizes browser resource usage to accelerate page loading.",
   image: "logo-speed-boost.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "JSONWizard",
   description: "Formats, validates, and prettifies JSON responses in-browser.",
   image: "logo-json-wizard.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "TabMaster",
   description: "Pro Organizes browser tabs into groups and sessions.",
   image: "logo-tab-master-pro.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "ViewportBuddy",
   description: "Simulates various screen resolutions directly within the browser.",
   image: "logo-viewport-buddy.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "Markup Notes",
   description: "Enables annotation and notes directly onto webpages for collaborative debugging.",
   image: "logo-markup-notes.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "GridGuides",
   description: "Overlay customizable grids and alignment guides on any webpage.",
   image: "logo-grid-guides.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "Palette Picker",
   description: "Instantly extracts color palettes from any webpage.",
   image: "logo-palette-picker.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "LinkChecker",
   description: "Scans and highlights broken links on any page.",
   image: "logo-link-checker.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "DOM Snapshot",
   description: "Capture and export DOM structures quickly.",
   image: "logo-dom-snapshot.svg",
-  is_deleted: false
 })
 extensionArray.push({
   name: "ConsolePlus",
   description: "Enhanced developer console with advanced filtering and logging.",
   image: "logo-console-plus.svg",
-  is_deleted: false
 })
 </script>
 
@@ -91,15 +82,16 @@ extensionArray.push({
         <nav>
           <h2>Extensions List</h2>
           <div class="buttons-group">
-            <button type="button" class="btn btn-secondary">All</button>
-            <button type="button" class="btn btn-secondary">Active</button>
-            <button type="button" class="btn btn-secondary">Inactive</button>
+            <button type="button" class="btn btn-secondary" @click="extensionActiveMod = 'all'">All</button>
+            <button type="button" class="btn btn-secondary" @click="extensionActiveMod = 'active'">Active</button>
+            <button type="button" class="btn btn-secondary" @click="extensionActiveMod = 'inactive'">Inactive</button>
           </div>
         </nav>
         <div class="all-elements">
           <ExtensionComponent
               v-for="(item, index) in extensionArray"
               :extension="item"
+              :mod = "extensionActiveMod"
               :key="index">
           </ExtensionComponent>
         </div>
