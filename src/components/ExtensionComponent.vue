@@ -9,9 +9,9 @@ const is_active = ref<boolean>(false);
 
 function checkShow(){
   return ((!is_deleted.value) &&
-      (props.mod === "all") ||
-      (props.mod === "active" && is_active.value) ||
-      (props.mod === "inactive" && !is_active.value))
+      (props.mod === "All") ||
+      (props.mod === "Active" && is_active.value) ||
+      (props.mod === "Inactive" && !is_active.value))
 }
 
 </script>
@@ -73,4 +73,24 @@ function checkShow(){
   .form-check-input{
     padding: 10px 18px;
   }
+
+  .form-check-input:checked{
+    background-color: #FF6B6B;
+    border-color: #FF856B;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25);
+  }
+
+  .form-check-input:focus{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23B9B9B9'/%3e%3c/svg%3e");
+    border-color: white;
+    box-shadow: none;
+  }
+
+  .form-check-input:checked:focus{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    border-color: #FF856B;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25);
+  }
+
+
 </style>

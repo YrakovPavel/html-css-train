@@ -4,7 +4,7 @@ import extensionArray from "../data.json";
 import Logo from "@/assets/images/logo.svg";
 import {ref} from "vue";
 
-const extensionActiveMod = ref<string>("all");
+const extensionActiveMod = ref<string>("All");
 
 </script>
 
@@ -20,9 +20,14 @@ const extensionActiveMod = ref<string>("all");
         <nav>
           <h2>Extensions List</h2>
           <div class="buttons-group">
-            <button type="button" class="btn btn-secondary" @click="extensionActiveMod = 'all'">All</button>
-            <button type="button" class="btn btn-secondary" @click="extensionActiveMod = 'active'">Active</button>
-            <button type="button" class="btn btn-secondary" @click="extensionActiveMod = 'inactive'">Inactive</button>
+            <button
+                v-for="mod in ['All', 'Active', 'Inactive']"
+                type="button"
+                class="btn btn-secondary"
+                :class="{active: extensionActiveMod === mod}"
+                @click="extensionActiveMod = mod">
+              <b>{{mod}}</b>
+            </button>
           </div>
         </nav>
         <div class="all-elements">
@@ -63,7 +68,6 @@ header{
   margin-left: 24px;
   margin-bottom: 12px;
   margin-top: 12px;
-  width: 12%;
   color: white;
 }
 
@@ -84,6 +88,12 @@ nav{
   border-radius: 20px;
   background-color: #1f2535;
   border-color: #4D5164;
+}
+
+.btn.active{
+  background-color: #FF6B6B;
+  border-color: #FF856B;
+  color: #060B23;
 }
 
 .all-elements{
