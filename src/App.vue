@@ -2,10 +2,25 @@
 import ExtensionComponent from "@/components/ExtensionComponent.vue";
 import extensionArray from "../data.json";
 import Logo from "@/assets/images/logo.svg";
-import {ref} from "vue";
+import Moon from "@/assets/images/icon-moon.svg";
+import Sun from "@/assets/images/icon-sun.svg";
+import {ref, shallowRef} from "vue";
 
 const extensionActiveMod = ref<string>("All");
+const theme = shallowRef<string>(Sun);
 
+function switchTheme(){
+  let themeTone: string;
+  if (theme.value === Sun){
+    theme.value = Moon;
+    themeTone = "light";
+  }
+  else{
+    theme.value = Sun;
+    themeTone = "dark";
+  }
+  document.documentElement.setAttribute('data-theme', themeTone);
+}
 </script>
 
 <template>
@@ -13,17 +28,20 @@ const extensionActiveMod = ref<string>("All");
     <header>
       <div class="card card-logo">
         <Logo class="logo"></Logo>
+        <button type="button" class="btn btn-secondary" id="LightDarkSwitch" @click="switchTheme">
+          <component :is="theme"></component>
+        </button>
       </div>
     </header>
     <main>
       <div>
         <nav>
-          <h2>Extensions List</h2>
+          <h2><b>Extensions List</b></h2>
           <div class="buttons-group">
             <button
                 v-for="mod in ['All', 'Active', 'Inactive']"
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-secondary btn-categories"
                 :class="{active: extensionActiveMod === mod}"
                 @click="extensionActiveMod = mod">
               <b>{{mod}}</b>
@@ -44,6 +62,7 @@ const extensionActiveMod = ref<string>("All");
 </template>
 
 <style scoped>
+
 .main-frame{
   width: 100%;
   height: 100%;
@@ -51,7 +70,7 @@ const extensionActiveMod = ref<string>("All");
 }
 
 h2{
-  color: white;
+  color: var(--font-color);
 }
 
 header{
@@ -60,15 +79,33 @@ header{
 }
 
 .card-logo{
-  background-color: #1f2535;
+  background-color: var(--main-bg-color);
   border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .logo{
   margin-left: 24px;
   margin-bottom: 12px;
   margin-top: 12px;
-  color: white;
+  color: var(--font-color);
+}
+
+#LightDarkSwitch{
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  background-color: var(--secondary-bg-color);
+  border-color: var(--secondary-bg-color);
+}
+
+#LightDarkSwitch:hover{
+  background-color: var(--hover-color);
+  border-color: var(--hover-color);
 }
 
 nav{
@@ -84,16 +121,17 @@ nav{
   gap: 12px;
 }
 
-.btn{
+.btn-categories{
   border-radius: 20px;
-  background-color: #1f2535;
-  border-color: #4D5164;
+  background-color: var(--main-bg-color);
+  border-color: var(--secondary-bg-color);
+  color: var(--font-color);
 }
 
-.btn.active{
-  background-color: #FF6B6B;
-  border-color: #FF856B;
-  color: #060B23;
+.btn-categories.active{
+  background-color: var(--main-button-active-color);
+  border-color: var(--secondary-button-active-color);
+  color: var(--button-active-text-color);
 }
 
 .all-elements{

@@ -1,0 +1,35 @@
+:root{
+    --bg-color: #060B23;
+
+    --main-bg-color: #1f2535;
+    --secondary-bg-color: #4D5164;
+    --hover-color: #5B5F76;
+    --main-button-active-color: #FF6B6B;
+    --secondary-button-active-color: #FF856B;
+    --button-active-text-color: #060B23;
+
+    --font-color: #FFFFFFFF;
+
+    --main-card-color: #1F2434;
+    --secondary-card-color: #4D5164;
+    --card-title-color: #F0F2F7;
+    --card-text-color:#B9C0D6;
+}
+
+[data-theme="light"]{
+    --bg-color: #EFF7FC;
+
+    --main-bg-color: #FCFDFF;
+    --secondary-bg-color: #D7DFEA;
+    --hover-color: #F0F3F8;
+    --main-button-active-color: #FF2E2E;
+    --secondary-button-active-color: #FF6B6B;
+    --button-active-text-color: #FFFFFFFF;
+
+    --font-color: #060B23;
+
+    --main-card-color: #FCFDFF;
+    --secondary-card-color: #D7DFEA;
+    --card-title-color: #071540;
+    --card-text-color: #343842;
+}
