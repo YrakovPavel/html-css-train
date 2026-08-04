@@ -21,6 +21,7 @@ function switchTheme(){
   }
   document.documentElement.setAttribute('data-theme', themeTone);
 }
+
 </script>
 
 <template>
@@ -136,7 +137,23 @@ nav{
 
 .all-elements{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 16px;
+}
+
+@media(max-width: 768px) {
+  .all-elements{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  nav{
+    flex-direction: column;
+    margin-bottom: 16px;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+  }
 }
 </style>

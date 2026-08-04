@@ -93,4 +93,13 @@ function checkShow(){
     box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25);
   }
 
+  @media(max-width: 768px) {
+    .card-body{
+      gap: 12px
+    }
+    .card-text{
+      margin-top: -12px;
+    }
+  }
+
 </style>
