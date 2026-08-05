@@ -7,9 +7,10 @@ import svgLoader from "vite-svg-loader"
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/html-css-train/",
   plugins: [
     vue(),
-    vueDevTools(),
+  /*  vueDevTools(), */
     svgLoader()
   ],
   resolve: {
