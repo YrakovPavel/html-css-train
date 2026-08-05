@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {Extension} from "@/types/Extension.ts";
+import images from "@/images.ts";
 import {ref} from "vue";
 
 const props = defineProps<{extension: Extension, mod: string}>()
@@ -14,16 +15,12 @@ function checkShow(){
       (props.mod === "Inactive" && !is_active.value))
 }
 
-function getImageUrl(name: string){
-  return new URL('../assets/images/' + name, import.meta.url).href
-}
-
 </script>
 
 <template>
   <div class="card" v-show="checkShow()">
     <div class="card-body">
-      <img class="card-image" :src="getImageUrl(props.extension.image)" alt="image of extension">
+      <img class="card-image" :src="images[props.extension.image]" alt="image of extension">
       <div class="card-title"><b>{{ props.extension.name}}</b></div>
       <div class="card-text">{{ props.extension.description }}</div>
       <div class="card-buttons">

@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import ExtensionComponent from "@/components/ExtensionComponent.vue";
 import extensionArray from "../data.json";
+import type {Extension} from "@/types/Extension.ts";
 import Logo from "@/assets/images/logo.svg";
 import Moon from "@/assets/images/icon-moon.svg";
 import Sun from "@/assets/images/icon-sun.svg";
 import {ref, shallowRef} from "vue";
+
+const extensions = extensionArray as Extension[];
 
 const extensionActiveMod = ref<string>("All");
 const theme = shallowRef<string>(Sun);
@@ -51,7 +54,7 @@ function switchTheme(){
         </nav>
         <div class="all-elements">
           <ExtensionComponent
-              v-for="(item, index) in extensionArray"
+              v-for="(item, index) in extensions"
               :extension="item"
               :mod = "extensionActiveMod"
               :key="index">
