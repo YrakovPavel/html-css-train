@@ -10,9 +10,9 @@ const is_active = ref<boolean>(false);
 
 function checkShow(){
   return ((!is_deleted.value) &&
-      (props.mod === "All") ||
+      ((props.mod === "All") ||
       (props.mod === "Active" && is_active.value) ||
-      (props.mod === "Inactive" && !is_active.value))
+      (props.mod === "Inactive" && !is_active.value)))
 }
 
 </script>
