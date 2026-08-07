@@ -15,7 +15,6 @@ function checkShow(){
       (props.mod === "Inactive" && !is_active.value)))
 }
 
-
 </script>
 
 <template>
